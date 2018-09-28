@@ -1,7 +1,5 @@
 package unochapeco.edu.br.mapbeer
 
-import android.app.Activity
-import android.location.LocationManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -13,11 +11,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
-
+class ProvaiderFragment: SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
     private lateinit var mMap: GoogleMap
 
-    private lateinit var locationManager: LocationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +31,6 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-
         mMap = googleMap
 
         mMap.setOnMapClickListener { this }

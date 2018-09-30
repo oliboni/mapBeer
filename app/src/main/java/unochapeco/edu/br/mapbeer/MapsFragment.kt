@@ -1,5 +1,6 @@
 package unochapeco.edu.br.mapbeer
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.location.LocationManager
 import android.support.v7.app.AppCompatActivity
@@ -16,8 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     private lateinit var mMap: GoogleMap
-
-    private lateinit var locationManager: LocationManager
+    private val TAG: String = "MapsFragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +34,12 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
 
         mMap = googleMap
 
-        mMap.setOnMapClickListener { this }
+        mMap.isMyLocationEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
 
 
@@ -54,6 +55,9 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
         mMap.addMarker(marker)
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(house))
+//        mMap.animateCamera(CameraUpdateFactory.zoomBy(20F),3000,null)
+
+        mMap.mapType =  GoogleMap.MAP_TYPE_SATELLITE
     }
 
     override fun onMapClick(p0: LatLng?) {

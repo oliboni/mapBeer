@@ -1,7 +1,6 @@
-package unochapeco.edu.br.mapbeer
+package br.edu.unochapeco.mapbeer
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
@@ -12,8 +11,6 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.content_main.view.*
-import unochapeco.edu.br.mapbeer.R.id.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 

@@ -1,4 +1,4 @@
-package unochapeco.edu.br.mapbeer
+package br.edu.unochapeco.mapbeer
 
 import org.junit.Test
 

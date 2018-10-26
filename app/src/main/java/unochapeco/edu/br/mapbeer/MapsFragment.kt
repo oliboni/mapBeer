@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
+
     private lateinit var mMap: GoogleMap
     private val TAG: String = "MapsFragment"
 
@@ -55,9 +56,10 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
         mMap.addMarker(marker)
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(house))
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(20F),3000,null)
+//        mMap.animateCamera(CameraUpdateFactory.zoomBy(20F),3000,null)
 
-//        mMap.mapType =  GoogleMap.MAP_TYPE_SATELLITE
+
+        mMap.mapType =  GoogleMap.MAP_TYPE_SATELLITE
     }
 
     override fun onMapClick(p0: LatLng?) {

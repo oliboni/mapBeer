@@ -1,12 +1,8 @@
-package unochapeco.edu.br.mapbeer
+package br.edu.unochapeco.mapbeer
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.location.LocationManager
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

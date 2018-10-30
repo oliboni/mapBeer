@@ -1,4 +1,4 @@
-package unochapeco.edu.br.mapbeer
+package br.edu.unochapeco.mapbeer
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity

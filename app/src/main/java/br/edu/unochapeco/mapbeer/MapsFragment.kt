@@ -2,23 +2,20 @@ package br.edu.unochapeco.mapbeer
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
-
+class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener{
 
     private lateinit var mMap: GoogleMap
-    private val TAG: String = "MapsFragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_maps)
         getMapAsync(this)
     }
 
@@ -32,34 +29,38 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
      * installed Google Play services and returned to the app.
      */
     @SuppressLint("MissingPermission")
-    override fun onMapReady(googleMap: GoogleMap) {
 
+    override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         mMap.isMyLocationEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.setOnMapClickListener(this)
+
+        val house = LatLng(-27.074323, -52.637181)
+
+        val marker = MarkerOptions()
+
+        mMap.addMarker(marker.position(house).title("Maker in my house").snippet("Test")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_beer_foreground)))
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(house, 17F))
 
 
-
-        // Add a marker in house and move the camera
-        val house = LatLng(-33.87365, 151.20689)
-
-        var marker = MarkerOptions()
-
-        marker.position(house)
-        marker.title("Maker in my house")
-
-        mMap.addMarker(marker)
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(house))
-//        mMap.animateCamera(CameraUpdateFactory.zoomBy(20F),3000,null)
-
-
-        mMap.mapType =  GoogleMap.MAP_TYPE_SATELLITE
+//        mMap.mapType =  GoogleMap.MAP_TYPE_SATELLITE
     }
 
     override fun onMapClick(p0: LatLng?) {
-        Toast.makeText( context, "Coordenadas: " + p0.toString(), Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, "Coordenadas: " + p0.toString(), Toast.LENGTH_SHORT).show()
 
+        var lat = p0!!.latitude
+        var lon = p0.longitude
+
+
+        var marcador = LatLng(lat,lon)
+        val marker = MarkerOptions()
+//
+        mMap.addMarker(marker.position(marcador).title("Maker in my house").snippet("Test")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_beer_foreground)))
     }
 }

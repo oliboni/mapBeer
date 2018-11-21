@@ -19,15 +19,6 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
         getMapAsync(this)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @SuppressLint("MissingPermission")
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -53,14 +44,23 @@ class MapsFragment : SupportMapFragment(), OnMapReadyCallback, GoogleMap.OnMapCl
     override fun onMapClick(p0: LatLng?) {
 //        Toast.makeText(context, "Coordenadas: " + p0.toString(), Toast.LENGTH_SHORT).show()
 
-        var lat = p0!!.latitude
-        var lon = p0.longitude
+        val lat = p0!!.latitude
+        val lon = p0.longitude
 
 
-        var marcador = LatLng(lat,lon)
+        val marcador = LatLng(lat,lon)
         val marker = MarkerOptions()
 //
         mMap.addMarker(marker.position(marcador).title("Maker in my house").snippet("Test")
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_beer_foreground)))
+    }
+
+    fun typeMap(id: Int){
+        when(id){
+            1-> mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+            2-> mMap.mapType =  GoogleMap.MAP_TYPE_SATELLITE
+            3-> mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
+        }
+
     }
 }

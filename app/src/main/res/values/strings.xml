@@ -2,11 +2,26 @@
     <string name="app_name">Map Beer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">FULL NAME</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
+    <string name="facebook_app_id">247017389328610</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb247017389328610</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="tUser">Usuário</string>
+    <string name="tPassword">Senha</string>
+    <string name="btLogin">Entrar</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
     <!-- TODO: Remove or change this placeholder text -->
-    <!--<string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
